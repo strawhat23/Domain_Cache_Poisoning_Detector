@@ -40,7 +40,7 @@ The system works in multiple stages:
 
 Clone the repository:
 
-git clone https://github.com/your-username/domain-cache-detector-django.git
+git clone https://github.com/strawhat23/Domain-Cache-Poisoning_Detector.git
 
 Navigate to the project folder:
 
