@@ -102,6 +102,17 @@ This project combines cryptographic verification through DNSSEC and intelligent 
 * Implement live alert systems such as email or notifications
 * Deploy the application on a cloud platform
 
+## Demo
+
+### Dashboard
+![Dashboard](screenshots/dashboard.png)
+
+### Threat Monitoring Table
+![Threat Table](screenshots/threat-table.png)
+
+### Alerts Panel
+![Alerts](screenshots/alerts.png)  
+
 ## Author
 
 Mayur Patil
