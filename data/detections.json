@@ -1,0 +1,902 @@
+[
+  {
+    "time": "2025-11-03 06:13:47",
+    "domain": "apple.com",
+    "dnssec_score": 53,
+    "latency_ms": 178.53,
+    "mismatch_ratio": 0.68,
+    "alert_level": "MEDIUM",
+    "description": "Potential cache inconsistencies observed."
+  },
+  {
+    "time": "2025-11-03 06:13:53",
+    "domain": "wikipedia.org",
+    "dnssec_score": 52,
+    "latency_ms": 117.84,
+    "mismatch_ratio": 0.55,
+    "alert_level": "MEDIUM",
+    "description": "Potential cache inconsistencies observed."
+  },
+  {
+    "time": "2025-11-10 11:46:37",
+    "domain": "python.org",
+    "dnssec_score": 60,
+    "latency_ms": 70.79,
+    "mismatch_ratio": 0.86,
+    "alert_level": "MEDIUM",
+    "description": "Potential cache inconsistencies observed."
+  },
+  {
+    "time": "2025-11-10 11:46:42",
+    "domain": "facebook.com",
+    "dnssec_score": 66,
+    "latency_ms": 45.14,
+    "mismatch_ratio": 0.84,
+    "alert_level": "MEDIUM",
+    "description": "Potential cache inconsistencies observed."
+  },
+  {
+    "time": "2025-11-10 11:46:50",
+    "domain": "bing.com",
+    "dnssec_score": 44,
+    "latency_ms": 20.51,
+    "mismatch_ratio": 0.59,
+    "alert_level": "MEDIUM",
+    "description": "Potential cache inconsistencies observed."
+  },
+  {
+    "time": "2025-11-10 11:46:56",
+    "domain": "stackoverflow.com",
+    "dnssec_score": 54,
+    "latency_ms": 179.51,
+    "mismatch_ratio": 0.03,
+    "alert_level": "MEDIUM",
+    "description": "Potential cache inconsistencies observed."
+  },
+  {
+    "time": "2025-11-10 11:47:04",
+    "domain": "cloudflare.com",
+    "dnssec_score": 81,
+    "latency_ms": 75.63,
+    "mismatch_ratio": 0.27,
+    "alert_level": "LOW",
+    "description": "No major issues detected. DNSSEC validation strong."
+  },
+  {
+    "time": "2025-11-10 11:47:11",
+    "domain": "facebook.com",
+    "dnssec_score": 40,
+    "latency_ms": 141.15,
+    "mismatch_ratio": 0.99,
+    "alert_level": "HIGH",
+    "description": "Critical \u2014 Resolver mismatch or DNSSEC validation failed."
+  },
+  {
+    "time": "2025-11-10 11:47:16",
+    "domain": "nytimes.com",
+    "dnssec_score": 69,
+    "latency_ms": 112.27,
+    "mismatch_ratio": 0.14,
+    "alert_level": "MEDIUM",
+    "description": "Potential cache inconsistencies observed."
+  },
+  {
+    "time": "2025-11-10 11:47:24",
+    "domain": "cnn.com",
+    "dnssec_score": 50,
+    "latency_ms": 54.33,
+    "mismatch_ratio": 0.58,
+    "alert_level": "MEDIUM",
+    "description": "Potential cache inconsistencies observed."
+  },
+  {
+    "time": "2025-11-10 11:47:30",
+    "domain": "yahoo.com",
+    "dnssec_score": 56,
+    "latency_ms": 26.01,
+    "mismatch_ratio": 0.15,
+    "alert_level": "MEDIUM",
+    "description": "Potential cache inconsistencies observed."
+  },
+  {
+    "time": "2025-11-10 11:47:38",
+    "domain": "amazon.com",
+    "dnssec_score": 40,
+    "latency_ms": 73.93,
+    "mismatch_ratio": 0.39,
+    "alert_level": "HIGH",
+    "description": "Critical \u2014 Resolver mismatch or DNSSEC validation failed."
+  },
+  {
+    "time": "2025-11-10 11:47:45",
+    "domain": "example.com",
+    "dnssec_score": 91,
+    "latency_ms": 89.05,
+    "mismatch_ratio": 0.15,
+    "alert_level": "LOW",
+    "description": "No major issues detected. DNSSEC validation strong."
+  },
+  {
+    "time": "2025-11-10 11:47:53",
+    "domain": "linkedin.com",
+    "dnssec_score": 64,
+    "latency_ms": 138.94,
+    "mismatch_ratio": 0.7,
+    "alert_level": "MEDIUM",
+    "description": "Potential cache inconsistencies observed."
+  },
+  {
+    "time": "2025-11-10 11:48:01",
+    "domain": "ietf.org",
+    "dnssec_score": 98,
+    "latency_ms": 62.52,
+    "mismatch_ratio": 0.95,
+    "alert_level": "LOW",
+    "description": "No major issues detected. DNSSEC validation strong."
+  },
+  {
+    "time": "2025-11-10 11:48:10",
+    "domain": "amazon.com",
+    "dnssec_score": 69,
+    "latency_ms": 51.86,
+    "mismatch_ratio": 0.22,
+    "alert_level": "MEDIUM",
+    "description": "Potential cache inconsistencies observed."
+  },
+  {
+    "time": "2025-11-10 11:48:18",
+    "domain": "cloudflare.com",
+    "dnssec_score": 91,
+    "latency_ms": 28.3,
+    "mismatch_ratio": 0.2,
+    "alert_level": "LOW",
+    "description": "No major issues detected. DNSSEC validation strong."
+  },
+  {
+    "time": "2025-11-10 11:48:26",
+    "domain": "bing.com",
+    "dnssec_score": 57,
+    "latency_ms": 173.51,
+    "mismatch_ratio": 0.68,
+    "alert_level": "MEDIUM",
+    "description": "Potential cache inconsistencies observed."
+  },
+  {
+    "time": "2025-11-10 11:48:34",
+    "domain": "adobe.com",
+    "dnssec_score": 47,
+    "latency_ms": 79.53,
+    "mismatch_ratio": 0.88,
+    "alert_level": "MEDIUM",
+    "description": "Potential cache inconsistencies observed."
+  },
+  {
+    "time": "2025-11-10 11:48:39",
+    "domain": "cloudflare.com",
+    "dnssec_score": 91,
+    "latency_ms": 53.64,
+    "mismatch_ratio": 0.38,
+    "alert_level": "LOW",
+    "description": "No major issues detected. DNSSEC validation strong."
+  },
+  {
+    "time": "2025-11-10 11:48:46",
+    "domain": "quora.com",
+    "dnssec_score": 58,
+    "latency_ms": 50.16,
+    "mismatch_ratio": 0.99,
+    "alert_level": "MEDIUM",
+    "description": "Potential cache inconsistencies observed."
+  },
+  {
+    "time": "2025-11-10 11:48:53",
+    "domain": "bbc.com",
+    "dnssec_score": 51,
+    "latency_ms": 91.56,
+    "mismatch_ratio": 0.58,
+    "alert_level": "MEDIUM",
+    "description": "Potential cache inconsistencies observed."
+  },
+  {
+    "time": "2025-11-10 11:48:59",
+    "domain": "facebook.com",
+    "dnssec_score": 50,
+    "latency_ms": 92.06,
+    "mismatch_ratio": 0.41,
+    "alert_level": "MEDIUM",
+    "description": "Potential cache inconsistencies observed."
+  },
+  {
+    "time": "2025-11-10 11:49:08",
+    "domain": "python.org",
+    "dnssec_score": 55,
+    "latency_ms": 45.81,
+    "mismatch_ratio": 0.93,
+    "alert_level": "MEDIUM",
+    "description": "Potential cache inconsistencies observed."
+  },
+  {
+    "time": "2025-11-10 11:49:14",
+    "domain": "nytimes.com",
+    "dnssec_score": 49,
+    "latency_ms": 118.02,
+    "mismatch_ratio": 0.43,
+    "alert_level": "MEDIUM",
+    "description": "Potential cache inconsistencies observed."
+  },
+  {
+    "time": "2025-11-10 11:49:23",
+    "domain": "stackoverflow.com",
+    "dnssec_score": 44,
+    "latency_ms": 80.99,
+    "mismatch_ratio": 0.22,
+    "alert_level": "MEDIUM",
+    "description": "Potential cache inconsistencies observed."
+  },
+  {
+    "time": "2025-11-10 11:49:30",
+    "domain": "python.org",
+    "dnssec_score": 61,
+    "latency_ms": 162.97,
+    "mismatch_ratio": 0.02,
+    "alert_level": "MEDIUM",
+    "description": "Potential cache inconsistencies observed."
+  },
+  {
+    "time": "2025-11-10 11:49:38",
+    "domain": "apple.com",
+    "dnssec_score": 63,
+    "latency_ms": 74.86,
+    "mismatch_ratio": 0.86,
+    "alert_level": "MEDIUM",
+    "description": "Potential cache inconsistencies observed."
+  },
+  {
+    "time": "2025-11-10 11:49:46",
+    "domain": "wikipedia.org",
+    "dnssec_score": 58,
+    "latency_ms": 123.77,
+    "mismatch_ratio": 0.42,
+    "alert_level": "MEDIUM",
+    "description": "Potential cache inconsistencies observed."
+  },
+  {
+    "time": "2025-11-10 11:49:53",
+    "domain": "bbc.com",
+    "dnssec_score": 65,
+    "latency_ms": 51.84,
+    "mismatch_ratio": 0.15,
+    "alert_level": "MEDIUM",
+    "description": "Potential cache inconsistencies observed."
+  },
+  {
+    "time": "2025-11-10 11:50:02",
+    "domain": "stackoverflow.com",
+    "dnssec_score": 67,
+    "latency_ms": 128.64,
+    "mismatch_ratio": 0.61,
+    "alert_level": "MEDIUM",
+    "description": "Potential cache inconsistencies observed."
+  },
+  {
+    "time": "2025-11-10 11:50:10",
+    "domain": "banksecure.net",
+    "dnssec_score": 51,
+    "latency_ms": 37.7,
+    "mismatch_ratio": 0.56,
+    "alert_level": "MEDIUM",
+    "description": "Potential cache inconsistencies observed."
+  },
+  {
+    "time": "2025-11-10 11:50:16",
+    "domain": "ietf.org",
+    "dnssec_score": 92,
+    "latency_ms": 153.17,
+    "mismatch_ratio": 0.31,
+    "alert_level": "LOW",
+    "description": "No major issues detected. DNSSEC validation strong."
+  },
+  {
+    "time": "2025-11-10 11:50:23",
+    "domain": "cloudflare.com",
+    "dnssec_score": 87,
+    "latency_ms": 92.26,
+    "mismatch_ratio": 0.07,
+    "alert_level": "LOW",
+    "description": "No major issues detected. DNSSEC validation strong."
+  },
+  {
+    "time": "2025-11-10 11:50:30",
+    "domain": "banksecure.net",
+    "dnssec_score": 44,
+    "latency_ms": 90.21,
+    "mismatch_ratio": 0.1,
+    "alert_level": "MEDIUM",
+    "description": "Potential cache inconsistencies observed."
+  },
+  {
+    "time": "2025-11-10 11:50:35",
+    "domain": "microsoft.com",
+    "dnssec_score": 51,
+    "latency_ms": 48.36,
+    "mismatch_ratio": 0.34,
+    "alert_level": "MEDIUM",
+    "description": "Potential cache inconsistencies observed."
+  },
+  {
+    "time": "2025-11-10 11:50:40",
+    "domain": "facebook.com",
+    "dnssec_score": 69,
+    "latency_ms": 73.28,
+    "mismatch_ratio": 0.81,
+    "alert_level": "MEDIUM",
+    "description": "Potential cache inconsistencies observed."
+  },
+  {
+    "time": "2025-11-10 11:50:49",
+    "domain": "ietf.org",
+    "dnssec_score": 91,
+    "latency_ms": 97.66,
+    "mismatch_ratio": 0.69,
+    "alert_level": "LOW",
+    "description": "No major issues detected. DNSSEC validation strong."
+  },
+  {
+    "time": "2025-11-10 11:50:55",
+    "domain": "bbc.com",
+    "dnssec_score": 44,
+    "latency_ms": 166.79,
+    "mismatch_ratio": 0.73,
+    "alert_level": "MEDIUM",
+    "description": "Potential cache inconsistencies observed."
+  },
+  {
+    "time": "2025-11-10 11:51:03",
+    "domain": "twitter.com",
+    "dnssec_score": 66,
+    "latency_ms": 124.5,
+    "mismatch_ratio": 1.0,
+    "alert_level": "MEDIUM",
+    "description": "Potential cache inconsistencies observed."
+  },
+  {
+    "time": "2025-11-10 11:51:09",
+    "domain": "dropbox.com",
+    "dnssec_score": 61,
+    "latency_ms": 144.51,
+    "mismatch_ratio": 0.47,
+    "alert_level": "MEDIUM",
+    "description": "Potential cache inconsistencies observed."
+  },
+  {
+    "time": "2025-11-10 11:51:16",
+    "domain": "demo.local",
+    "dnssec_score": 31,
+    "latency_ms": 46.63,
+    "mismatch_ratio": 0.83,
+    "alert_level": "HIGH",
+    "description": "Critical \u2014 Resolver mismatch or DNSSEC validation failed."
+  },
+  {
+    "time": "2025-11-10 11:51:22",
+    "domain": "banksecure.net",
+    "dnssec_score": 59,
+    "latency_ms": 164.58,
+    "mismatch_ratio": 0.56,
+    "alert_level": "MEDIUM",
+    "description": "Potential cache inconsistencies observed."
+  },
+  {
+    "time": "2025-11-10 11:51:27",
+    "domain": "cnn.com",
+    "dnssec_score": 40,
+    "latency_ms": 104.63,
+    "mismatch_ratio": 0.79,
+    "alert_level": "HIGH",
+    "description": "Critical \u2014 Resolver mismatch or DNSSEC validation failed."
+  },
+  {
+    "time": "2025-11-10 11:51:37",
+    "domain": "mydomain.net",
+    "dnssec_score": 64,
+    "latency_ms": 32.52,
+    "mismatch_ratio": 0.07,
+    "alert_level": "MEDIUM",
+    "description": "Potential cache inconsistencies observed."
+  },
+  {
+    "time": "2025-11-10 11:51:45",
+    "domain": "quora.com",
+    "dnssec_score": 60,
+    "latency_ms": 130.48,
+    "mismatch_ratio": 0.89,
+    "alert_level": "MEDIUM",
+    "description": "Potential cache inconsistencies observed."
+  },
+  {
+    "time": "2025-11-10 11:51:53",
+    "domain": "google.com",
+    "dnssec_score": 65,
+    "latency_ms": 163.57,
+    "mismatch_ratio": 0.26,
+    "alert_level": "MEDIUM",
+    "description": "Potential cache inconsistencies observed."
+  },
+  {
+    "time": "2025-11-10 11:52:02",
+    "domain": "microsoft.com",
+    "dnssec_score": 56,
+    "latency_ms": 54.85,
+    "mismatch_ratio": 0.17,
+    "alert_level": "MEDIUM",
+    "description": "Potential cache inconsistencies observed."
+  },
+  {
+    "time": "2025-11-10 11:52:08",
+    "domain": "example.com",
+    "dnssec_score": 94,
+    "latency_ms": 139.13,
+    "mismatch_ratio": 0.33,
+    "alert_level": "LOW",
+    "description": "No major issues detected. DNSSEC validation strong."
+  },
+  {
+    "time": "2025-11-10 11:52:16",
+    "domain": "quora.com",
+    "dnssec_score": 59,
+    "latency_ms": 42.57,
+    "mismatch_ratio": 0.94,
+    "alert_level": "MEDIUM",
+    "description": "Potential cache inconsistencies observed."
+  },
+  {
+    "time": "2025-11-10 11:52:22",
+    "domain": "amazon.com",
+    "dnssec_score": 64,
+    "latency_ms": 95.09,
+    "mismatch_ratio": 0.59,
+    "alert_level": "MEDIUM",
+    "description": "Potential cache inconsistencies observed."
+  },
+  {
+    "time": "2025-11-10 11:52:27",
+    "domain": "stackoverflow.blog",
+    "dnssec_score": 46,
+    "latency_ms": 90.95,
+    "mismatch_ratio": 0.77,
+    "alert_level": "MEDIUM",
+    "description": "Potential cache inconsistencies observed."
+  },
+  {
+    "time": "2025-11-10 11:52:32",
+    "domain": "paypal.com",
+    "dnssec_score": 90,
+    "latency_ms": 40.97,
+    "mismatch_ratio": 0.57,
+    "alert_level": "LOW",
+    "description": "No major issues detected. DNSSEC validation strong."
+  },
+  {
+    "time": "2025-11-10 11:52:38",
+    "domain": "quora.com",
+    "dnssec_score": 51,
+    "latency_ms": 109.77,
+    "mismatch_ratio": 0.05,
+    "alert_level": "MEDIUM",
+    "description": "Potential cache inconsistencies observed."
+  },
+  {
+    "time": "2025-11-10 11:52:43",
+    "domain": "forbes.com",
+    "dnssec_score": 68,
+    "latency_ms": 116.73,
+    "mismatch_ratio": 0.7,
+    "alert_level": "MEDIUM",
+    "description": "Potential cache inconsistencies observed."
+  },
+  {
+    "time": "2025-11-10 11:52:52",
+    "domain": "github.com",
+    "dnssec_score": 58,
+    "latency_ms": 143.65,
+    "mismatch_ratio": 0.36,
+    "alert_level": "MEDIUM",
+    "description": "Potential cache inconsistencies observed."
+  },
+  {
+    "time": "2025-11-10 11:52:58",
+    "domain": "apple.com",
+    "dnssec_score": 61,
+    "latency_ms": 136.81,
+    "mismatch_ratio": 0.89,
+    "alert_level": "MEDIUM",
+    "description": "Potential cache inconsistencies observed."
+  },
+  {
+    "time": "2025-11-10 11:53:07",
+    "domain": "bbc.com",
+    "dnssec_score": 46,
+    "latency_ms": 37.92,
+    "mismatch_ratio": 0.97,
+    "alert_level": "MEDIUM",
+    "description": "Potential cache inconsistencies observed."
+  },
+  {
+    "time": "2025-11-10 11:53:14",
+    "domain": "github.com",
+    "dnssec_score": 45,
+    "latency_ms": 96.14,
+    "mismatch_ratio": 0.4,
+    "alert_level": "MEDIUM",
+    "description": "Potential cache inconsistencies observed."
+  },
+  {
+    "time": "2025-11-10 11:53:22",
+    "domain": "paypal.com",
+    "dnssec_score": 92,
+    "latency_ms": 107.08,
+    "mismatch_ratio": 0.91,
+    "alert_level": "LOW",
+    "description": "No major issues detected. DNSSEC validation strong."
+  },
+  {
+    "time": "2025-11-10 11:53:31",
+    "domain": "twitter.com",
+    "dnssec_score": 51,
+    "latency_ms": 39.69,
+    "mismatch_ratio": 0.63,
+    "alert_level": "MEDIUM",
+    "description": "Potential cache inconsistencies observed."
+  },
+  {
+    "time": "2025-11-10 11:53:38",
+    "domain": "oracle.com",
+    "dnssec_score": 54,
+    "latency_ms": 107.08,
+    "mismatch_ratio": 0.33,
+    "alert_level": "MEDIUM",
+    "description": "Potential cache inconsistencies observed."
+  },
+  {
+    "time": "2025-11-10 11:53:47",
+    "domain": "facebook.com",
+    "dnssec_score": 68,
+    "latency_ms": 131.44,
+    "mismatch_ratio": 0.88,
+    "alert_level": "MEDIUM",
+    "description": "Potential cache inconsistencies observed."
+  },
+  {
+    "time": "2025-11-10 11:53:53",
+    "domain": "amazon.com",
+    "dnssec_score": 60,
+    "latency_ms": 117.73,
+    "mismatch_ratio": 0.33,
+    "alert_level": "MEDIUM",
+    "description": "Potential cache inconsistencies observed."
+  },
+  {
+    "time": "2025-11-10 11:54:00",
+    "domain": "adobe.com",
+    "dnssec_score": 52,
+    "latency_ms": 176.9,
+    "mismatch_ratio": 0.86,
+    "alert_level": "MEDIUM",
+    "description": "Potential cache inconsistencies observed."
+  },
+  {
+    "time": "2025-11-10 11:54:06",
+    "domain": "cloudflare.com",
+    "dnssec_score": 95,
+    "latency_ms": 133.8,
+    "mismatch_ratio": 0.84,
+    "alert_level": "LOW",
+    "description": "No major issues detected. DNSSEC validation strong."
+  },
+  {
+    "time": "2025-11-10 11:54:13",
+    "domain": "twitter.com",
+    "dnssec_score": 62,
+    "latency_ms": 75.83,
+    "mismatch_ratio": 0.5,
+    "alert_level": "MEDIUM",
+    "description": "Potential cache inconsistencies observed."
+  },
+  {
+    "time": "2025-11-10 11:54:18",
+    "domain": "dropbox.com",
+    "dnssec_score": 46,
+    "latency_ms": 177.14,
+    "mismatch_ratio": 0.73,
+    "alert_level": "MEDIUM",
+    "description": "Potential cache inconsistencies observed."
+  },
+  {
+    "time": "2025-11-10 11:54:25",
+    "domain": "python.org",
+    "dnssec_score": 51,
+    "latency_ms": 130.51,
+    "mismatch_ratio": 0.58,
+    "alert_level": "MEDIUM",
+    "description": "Potential cache inconsistencies observed."
+  },
+  {
+    "time": "2025-11-10 11:54:31",
+    "domain": "adobe.com",
+    "dnssec_score": 57,
+    "latency_ms": 118.68,
+    "mismatch_ratio": 0.4,
+    "alert_level": "MEDIUM",
+    "description": "Potential cache inconsistencies observed."
+  },
+  {
+    "time": "2025-11-10 11:54:40",
+    "domain": "bing.com",
+    "dnssec_score": 46,
+    "latency_ms": 39.55,
+    "mismatch_ratio": 0.72,
+    "alert_level": "MEDIUM",
+    "description": "Potential cache inconsistencies observed."
+  },
+  {
+    "time": "2025-11-10 11:54:49",
+    "domain": "bing.com",
+    "dnssec_score": 70,
+    "latency_ms": 72.82,
+    "mismatch_ratio": 0.57,
+    "alert_level": "LOW",
+    "description": "No major issues detected. DNSSEC validation strong."
+  },
+  {
+    "time": "2025-11-10 11:54:58",
+    "domain": "stackoverflow.blog",
+    "dnssec_score": 67,
+    "latency_ms": 53.31,
+    "mismatch_ratio": 0.27,
+    "alert_level": "MEDIUM",
+    "description": "Potential cache inconsistencies observed."
+  },
+  {
+    "time": "2025-11-10 11:55:07",
+    "domain": "amazon.com",
+    "dnssec_score": 41,
+    "latency_ms": 104.77,
+    "mismatch_ratio": 0.0,
+    "alert_level": "MEDIUM",
+    "description": "Potential cache inconsistencies observed."
+  },
+  {
+    "time": "2025-11-10 11:55:14",
+    "domain": "yahoo.com",
+    "dnssec_score": 42,
+    "latency_ms": 22.87,
+    "mismatch_ratio": 0.71,
+    "alert_level": "MEDIUM",
+    "description": "Potential cache inconsistencies observed."
+  },
+  {
+    "time": "2025-11-10 11:55:22",
+    "domain": "yahoo.com",
+    "dnssec_score": 70,
+    "latency_ms": 48.73,
+    "mismatch_ratio": 0.97,
+    "alert_level": "MEDIUM",
+    "description": "Potential cache inconsistencies observed."
+  },
+  {
+    "time": "2025-11-10 11:55:29",
+    "domain": "adobe.com",
+    "dnssec_score": 49,
+    "latency_ms": 156.76,
+    "mismatch_ratio": 0.83,
+    "alert_level": "MEDIUM",
+    "description": "Potential cache inconsistencies observed."
+  },
+  {
+    "time": "2025-11-10 11:55:38",
+    "domain": "banksecure.net",
+    "dnssec_score": 65,
+    "latency_ms": 97.31,
+    "mismatch_ratio": 0.61,
+    "alert_level": "MEDIUM",
+    "description": "Potential cache inconsistencies observed."
+  },
+  {
+    "time": "2025-11-10 11:55:47",
+    "domain": "cloudflare.com",
+    "dnssec_score": 81,
+    "latency_ms": 159.5,
+    "mismatch_ratio": 0.16,
+    "alert_level": "LOW",
+    "description": "No major issues detected. DNSSEC validation strong."
+  },
+  {
+    "time": "2025-11-10 11:55:54",
+    "domain": "dropbox.com",
+    "dnssec_score": 45,
+    "latency_ms": 74.13,
+    "mismatch_ratio": 0.13,
+    "alert_level": "MEDIUM",
+    "description": "Potential cache inconsistencies observed."
+  },
+  {
+    "time": "2025-11-10 11:56:01",
+    "domain": "amazon.com",
+    "dnssec_score": 52,
+    "latency_ms": 44.89,
+    "mismatch_ratio": 0.47,
+    "alert_level": "MEDIUM",
+    "description": "Potential cache inconsistencies observed."
+  },
+  {
+    "time": "2025-11-12 04:30:17",
+    "domain": "python.org",
+    "dnssec_score": 64,
+    "latency_ms": 34.44,
+    "mismatch_ratio": 0.33,
+    "alert_level": "MEDIUM",
+    "description": "Potential cache inconsistencies observed."
+  },
+  {
+    "time": "2025-11-12 04:30:25",
+    "domain": "google.com",
+    "dnssec_score": 62,
+    "latency_ms": 48.56,
+    "mismatch_ratio": 0.56,
+    "alert_level": "MEDIUM",
+    "description": "Potential cache inconsistencies observed."
+  },
+  {
+    "time": "2025-11-12 04:30:32",
+    "domain": "wikipedia.org",
+    "dnssec_score": 64,
+    "latency_ms": 23.04,
+    "mismatch_ratio": 0.66,
+    "alert_level": "MEDIUM",
+    "description": "Potential cache inconsistencies observed."
+  },
+  {
+    "time": "2025-11-12 04:30:40",
+    "domain": "facebook.com",
+    "dnssec_score": 57,
+    "latency_ms": 117.73,
+    "mismatch_ratio": 0.53,
+    "alert_level": "MEDIUM",
+    "description": "Potential cache inconsistencies observed."
+  },
+  {
+    "time": "2025-11-12 04:30:49",
+    "domain": "linkedin.com",
+    "dnssec_score": 53,
+    "latency_ms": 115.77,
+    "mismatch_ratio": 0.28,
+    "alert_level": "MEDIUM",
+    "description": "Potential cache inconsistencies observed."
+  },
+  {
+    "time": "2025-11-12 04:30:56",
+    "domain": "reddit.com",
+    "dnssec_score": 63,
+    "latency_ms": 107.18,
+    "mismatch_ratio": 0.67,
+    "alert_level": "MEDIUM",
+    "description": "Potential cache inconsistencies observed."
+  },
+  {
+    "time": "2025-11-12 04:31:01",
+    "domain": "banksecure.net",
+    "dnssec_score": 59,
+    "latency_ms": 121.17,
+    "mismatch_ratio": 0.73,
+    "alert_level": "MEDIUM",
+    "description": "Potential cache inconsistencies observed."
+  },
+  {
+    "time": "2025-11-12 04:31:06",
+    "domain": "wikipedia.org",
+    "dnssec_score": 51,
+    "latency_ms": 100.82,
+    "mismatch_ratio": 0.86,
+    "alert_level": "MEDIUM",
+    "description": "Potential cache inconsistencies observed."
+  },
+  {
+    "time": "2025-11-12 04:31:15",
+    "domain": "facebook.com",
+    "dnssec_score": 40,
+    "latency_ms": 22.06,
+    "mismatch_ratio": 0.66,
+    "alert_level": "HIGH",
+    "description": "Critical \u2014 Resolver mismatch or DNSSEC validation failed."
+  },
+  {
+    "time": "2025-11-12 04:31:26",
+    "domain": "cloudflare.com",
+    "dnssec_score": 47,
+    "latency_ms": 22.88,
+    "mismatch_ratio": 0.67,
+    "alert_level": "MEDIUM",
+    "description": "Potential cache inconsistencies observed."
+  },
+  {
+    "time": "2025-11-12 04:31:35",
+    "domain": "quora.com",
+    "dnssec_score": 69,
+    "latency_ms": 40.26,
+    "mismatch_ratio": 0.09,
+    "alert_level": "LOW",
+    "description": "No major issues detected. DNSSEC validation strong."
+  },
+  {
+    "time": "2025-11-12 04:31:40",
+    "domain": "stackoverflow.com",
+    "dnssec_score": 65,
+    "latency_ms": 54.49,
+    "mismatch_ratio": 0.75,
+    "alert_level": "MEDIUM",
+    "description": "Potential cache inconsistencies observed."
+  },
+  {
+    "time": "2025-11-12 04:31:49",
+    "domain": "adobe.com",
+    "dnssec_score": 70,
+    "latency_ms": 111.4,
+    "mismatch_ratio": 0.83,
+    "alert_level": "MEDIUM",
+    "description": "Potential cache inconsistencies observed."
+  },
+  {
+    "time": "2025-11-12 04:31:54",
+    "domain": "bbc.com",
+    "dnssec_score": 52,
+    "latency_ms": 178.02,
+    "mismatch_ratio": 0.49,
+    "alert_level": "MEDIUM",
+    "description": "Potential cache inconsistencies observed."
+  },
+  {
+    "time": "2025-11-12 04:32:04",
+    "domain": "adobe.com",
+    "dnssec_score": 41,
+    "latency_ms": 133.35,
+    "mismatch_ratio": 0.07,
+    "alert_level": "MEDIUM",
+    "description": "Potential cache inconsistencies observed."
+  },
+  {
+    "time": "2025-11-12 04:32:09",
+    "domain": "apple.com",
+    "dnssec_score": 64,
+    "latency_ms": 101.63,
+    "mismatch_ratio": 0.44,
+    "alert_level": "MEDIUM",
+    "description": "Potential cache inconsistencies observed."
+  },
+  {
+    "time": "2025-11-12 04:32:14",
+    "domain": "linkedin.com",
+    "dnssec_score": 44,
+    "latency_ms": 159.59,
+    "mismatch_ratio": 0.06,
+    "alert_level": "MEDIUM",
+    "description": "Potential cache inconsistencies observed."
+  },
+  {
+    "time": "2025-11-12 04:32:22",
+    "domain": "bing.com",
+    "dnssec_score": 70,
+    "latency_ms": 108.73,
+    "mismatch_ratio": 0.5,
+    "alert_level": "LOW",
+    "description": "No major issues detected. DNSSEC validation strong."
+  },
+  {
+    "time": "2025-11-12 04:32:27",
+    "domain": "amazon.com",
+    "dnssec_score": 60,
+    "latency_ms": 53.38,
+    "mismatch_ratio": 0.63,
+    "alert_level": "MEDIUM",
+    "description": "Potential cache inconsistencies observed."
+  }
+]

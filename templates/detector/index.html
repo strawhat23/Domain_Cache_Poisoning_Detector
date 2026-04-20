@@ -1,0 +1,448 @@
+<!-- 
+  @Author: Your name
+  @Date:   2025-10-22 09:55:40
+  @Last Modified by:   Your name
+  @Last Modified time: 2025-11-10 17:20:45
+-->
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Domain Cache Poisoning Detector - SOC Mode</title>
+
+<!-- Bootstrap + Chart.js -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<style>
+/* =================== GLOBAL =================== */
+body {
+  font-family: 'Orbitron', 'Poppins', sans-serif;
+  background: radial-gradient(circle at 20% 20%, #050013 0%, #000 100%);
+  color: #e0e0e0;
+  overflow-x: hidden;
+  margin: 0;
+  min-height: 100vh;
+  position: relative;
+}
+
+/* Neon grid background */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background: linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px),
+              linear-gradient(0deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+  background-size: 40px 40px;
+  z-index: -2;
+}
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background: radial-gradient(circle at 50% 0%, rgba(0,255,255,0.05), transparent 70%);
+  z-index: -1;
+}
+
+/* =================== HEADER =================== */
+h2 {
+  color: #0ff;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  text-shadow: 0 0 12px #0ff;
+}
+
+/* =================== TICKER =================== */
+#ticker {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  background: rgba(5,5,20,0.9);
+  padding: 8px 0;
+  color: #0ff;
+  border-bottom: 1px solid rgba(0,255,255,0.2);
+  text-shadow: 0 0 8px #0ff;
+  overflow: hidden;
+  white-space: nowrap;
+  z-index: 10;
+}
+#ticker span {
+  display: inline-block;
+  padding-left: 100%;
+  animation: tickerMove 18s linear infinite;
+}
+@keyframes tickerMove { from { transform: translateX(0); } to { transform: translateX(-100%); } }
+
+/* =================== NEON BUTTON =================== */
+.btn-neon {
+  background: linear-gradient(90deg,#0ff,#b45fff,#ff3860);
+  border: none;
+  color: #fff;
+  font-weight: 600;
+  padding: 8px 20px;
+  border-radius: 25px;
+  text-shadow: 0 0 5px #fff;
+  animation: glow 2s infinite alternate;
+}
+@keyframes glow {
+  0% { box-shadow: 0 0 10px #b45fff, 0 0 15px #0ff; }
+  100% { box-shadow: 0 0 20px #b45fff, 0 0 30px #0ff; }
+}
+
+/* =================== CARDS =================== */
+.card {
+  background: rgba(10, 10, 25, 0.85);
+  border: 1px solid rgba(0,255,255,0.1);
+  border-radius: 18px;
+  box-shadow: 0 0 25px rgba(0,255,255,0.1);
+  transition: all 0.3s ease;
+  backdrop-filter: blur(12px);
+}
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 0 30px rgba(0,255,255,0.3);
+}
+
+/* =================== METRIC CARDS =================== */
+.metric-card {
+  background: rgba(10,10,25,0.7);
+  border-radius: 14px;
+  border: 1px solid rgba(0,255,255,0.15);
+  text-align: center;
+  padding: 20px;
+  box-shadow: 0 0 20px rgba(0,255,255,0.1);
+  transition: 0.3s;
+}
+.metric-card:hover { transform: scale(1.05); box-shadow: 0 0 25px rgba(0,255,255,0.3); }
+.metric-value { font-size: 2rem; font-weight: 700; color: #0ff; text-shadow: 0 0 12px #0ff; }
+.metric-label { color: #aaa; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1px; }
+
+/* =================== LIVE ALERTS =================== */
+#alerts {
+  max-height: 480px;
+  overflow-y: auto;
+  scrollbar-width: thin;
+  scrollbar-color: #0ff transparent;
+}
+#alerts::-webkit-scrollbar { width: 6px; }
+#alerts::-webkit-scrollbar-thumb {
+  background: linear-gradient(#0ff,#b45fff);
+  border-radius: 3px;
+}
+#alerts div {
+  position: relative;
+  padding: 12px 12px 12px 42px;
+  margin-bottom: 10px;
+  border-left: 4px solid transparent;
+  border-radius: 10px;
+  background: rgba(255,255,255,0.03);
+  backdrop-filter: blur(10px);
+  transition: all 0.3s ease;
+  color: #f0f0f0;
+}
+#alerts div:hover { transform: scale(1.02); background: rgba(255,255,255,0.08); }
+#alerts div.low { border-left-color: #00fff0; box-shadow: 0 0 10px rgba(0,255,255,0.25); }
+#alerts div.medium { border-left-color: #b45fff; box-shadow: 0 0 10px rgba(180,95,255,0.25); }
+#alerts div.high { border-left-color: #ff3860; box-shadow: 0 0 10px rgba(255,56,96,0.3); }
+.alert-icon {
+  position: absolute;
+  left: 12px; top: 50%;
+  transform: translateY(-50%);
+  font-size: 1.4rem;
+  animation: shieldPulse 3s infinite ease-in-out;
+  text-shadow: 0 0 10px currentColor;
+}
+.alert-icon.low { color: #00fff0; }
+.alert-icon.medium { color: #b45fff; }
+.alert-icon.high { color: #ff3860; }
+@keyframes shieldPulse {
+  0%,100% { transform: translateY(-50%) scale(1); opacity: 0.9; }
+  50% { transform: translateY(-50%) scale(1.25); opacity: 1; }
+}
+#alerts div strong {
+  color: #fff;
+  font-weight: 600;
+  text-shadow: 0 0 6px rgba(255,255,255,0.4);
+}
+#alerts div .muted {
+  color: #cfcfcf;
+  font-size: 0.85rem;
+  margin-top: 3px;
+}
+.alert-badge {
+  font-weight: 700;
+  padding: 4px 12px;
+  border-radius: 12px;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  color: #fff;
+}
+.alert-badge.low { background: linear-gradient(90deg,#00e6ff,#00ffa3); box-shadow: 0 0 8px #00fff0; }
+.alert-badge.medium { background: linear-gradient(90deg,#a855f7,#b45fff); box-shadow: 0 0 8px #b45fff; }
+.alert-badge.high { background: linear-gradient(90deg,#ff1744,#ff6b81); box-shadow: 0 0 8px #ff3860; }
+
+/* =================== TABLE =================== */
+.table thead { color: #0ff; text-transform: uppercase; letter-spacing: 1px; font-size: 0.8rem; }
+tbody tr:hover { background: rgba(20,20,40,0.7); }
+
+/* =================== CHARTS =================== */
+#chart, #dnssecTrend {
+  background: rgba(20,20,30,0.8);
+  border-radius: 14px;
+  padding: 10px;
+  box-shadow: inset 0 0 15px rgba(0,255,255,0.2);
+}
+
+/* =================== PARTICLES =================== */
+#particles {
+  position: fixed; top: 0; left: 0;
+  width: 100%; height: 100%;
+  z-index: -3;
+  pointer-events: none;
+}
+</style>
+</head>
+
+<body>
+<canvas id="particles"></canvas>
+<div id="ticker"><span id="tickerContent">Initializing Security Monitoring...</span></div>
+
+<div class="container py-5">
+  <div class="d-flex justify-content-between align-items-center mb-4">
+    <h2>⚔ Domain Cache Poisoning Detector</h2>
+    <div>
+      <button id="genReport" class="btn-neon btn-sm me-2">Generate Report</button>
+      <a id="downloadLink" class="btn btn-outline-light btn-sm" style="display:none">Download</a>
+    </div>
+  </div>
+
+  <!-- Metrics -->
+  <div class="row g-3 mb-4 text-center">
+    <div class="col-6 col-md-3"><div class="metric-card"><div class="metric-value" id="metric-total">0</div><div class="metric-label">Total Alerts</div></div></div>
+    <div class="col-6 col-md-3"><div class="metric-card"><div class="metric-value" id="metric-high">0</div><div class="metric-label">High Severity</div></div></div>
+    <div class="col-6 col-md-3"><div class="metric-card"><div class="metric-value" id="metric-domains">0</div><div class="metric-label">Domains Monitored</div></div></div>
+    <div class="col-6 col-md-3"><div class="metric-card"><div class="metric-value" id="metric-secure">0</div><div class="metric-label">Secure Domains</div></div></div>
+  </div>
+
+  <div class="row g-4">
+    <div class="col-md-4">
+      <div class="card p-3 h-100">
+        <h5 class="text-info mb-3">Live Alerts</h5>
+        <div id="alerts"></div>
+      </div>
+    </div>
+
+    <div class="col-md-8">
+      <div class="card p-3">
+        <h5 class="text-info">Alert Overview</h5>
+        <canvas id="chart" height="130"></canvas>
+        <hr class="text-secondary">
+        <h5 class="text-info">DNSSEC Score Trend</h5>
+        <canvas id="dnssecTrend" height="160"></canvas>
+        <hr class="text-secondary">
+        <h6 class="text-info">Recent Events</h6>
+        <div class="table-responsive">
+          <table class="table table-sm table-borderless text-white align-middle">
+            <thead><tr><th>Time</th><th>Domain</th><th>Score</th><th>Latency</th><th>Mismatch</th><th>Level</th><th>Notes</th></tr></thead>
+            <tbody id="events"></tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+/* === Particle Background === */
+const canvas=document.getElementById('particles'),ctx=canvas.getContext('2d');
+let W=canvas.width=window.innerWidth,H=canvas.height=window.innerHeight,particles=[];
+for(let i=0;i<100;i++)particles.push({x:Math.random()*W,y:Math.random()*H,r:Math.random()*2+1,dx:(Math.random()-0.5)*0.5,dy:(Math.random()-0.5)*0.5});
+function animateParticles(){
+  ctx.clearRect(0,0,W,H);
+  for(let p of particles){
+    p.x+=p.dx;p.y+=p.dy;
+    if(p.x<0||p.x>W)p.dx*=-1;if(p.y<0||p.y>H)p.dy*=-1;
+    ctx.beginPath();ctx.arc(p.x,p.y,p.r,0,2*Math.PI);
+    ctx.fillStyle='rgba(0,255,255,0.18)';ctx.fill();
+  }
+  connectParticles();requestAnimationFrame(animateParticles);
+}
+function connectParticles(){
+  for(let i=0;i<particles.length;i++)for(let j=i+1;j<particles.length;j++){
+    let a=particles[i],b=particles[j];
+    let dist=Math.hypot(a.x-b.x,a.y-b.y);
+    if(dist<110){ctx.strokeStyle='rgba(0,255,255,'+(1-dist/110)*0.15+')';
+      ctx.lineWidth=1;ctx.beginPath();ctx.moveTo(a.x,a.y);ctx.lineTo(b.x,b.y);ctx.stroke();}
+  }
+}
+animateParticles();window.addEventListener('resize',()=>{W=canvas.width=window.innerWidth;H=canvas.height=window.innerHeight;});
+
+/* === Dashboard Logic === */
+const pollInterval=2500;
+let chart=null,trendChart=null,lastAlertCount=0;
+const tickerContent=document.getElementById('tickerContent');
+
+function fetchLatest(){
+  fetch('/api/detections/latest').then(r=>r.json()).then(data=>{
+    if(data.status!=='ok')return;
+    const detections=data.detections||[];
+    updateAlerts(detections);
+    updateTable(detections);
+    updateChart(detections);
+    updateTrend(detections);
+    updateTicker(detections);
+    updateMetrics(detections);
+  }).catch(err=>{
+    console.error('fetchLatest error',err);
+  });
+}
+
+/* === Live Alerts === */
+function updateAlerts(detections){
+  const el=document.getElementById('alerts');el.innerHTML='';
+  const recent=detections.slice().reverse();
+  const newCount=recent.length-lastAlertCount;
+  lastAlertCount=recent.length;
+
+  if(recent.length===0){
+    el.innerHTML='<div class="text-center text-muted py-4">✅ No suspicious DNS cache activity detected.</div>';
+    return;
+  }
+
+  for(let i=0;i<recent.slice(0,40).length;i++){
+    const d=recent[i];
+    const div=document.createElement('div');
+    div.classList.add(d.alert_level.toLowerCase());
+    const iconHTML = `<span class="alert-icon ${d.alert_level.toLowerCase()}">🛡️</span>`;
+    div.innerHTML=`
+      ${iconHTML}
+      <div class="d-flex align-items-center justify-content-between mb-1">
+        <span class="alert-badge ${d.alert_level.toLowerCase()}">${d.alert_level}</span>
+        <span class="small text-secondary">${d.time}</span>
+      </div>
+      <strong>${d.domain}</strong>
+      <div class="muted">${d.description}</div>
+    `;
+    if(i<newCount) div.querySelector('.alert-badge').classList.add('flash');
+    el.appendChild(div);
+  }
+}
+
+/* === Recent Events Table === */
+function updateTable(detections){
+  const tb=document.getElementById('events');tb.innerHTML='';
+  for(let d of detections.slice().reverse().slice(0,25)){
+    const tr=document.createElement('tr');
+    tr.innerHTML=`
+      <td class="muted small">${d.time}</td>
+      <td><strong>${d.domain}</strong></td>
+      <td>${d.dnssec_score??'-'}</td>
+      <td>${d.latency_ms??'-'}</td>
+      <td>${d.mismatch_ratio??'-'}</td>
+      <td><span class="alert-badge ${d.alert_level.toLowerCase()}">${d.alert_level}</span></td>
+      <td class="muted small">${d.description}</td>`;
+    tb.appendChild(tr);
+  }
+}
+
+/* === Bar Chart === */
+function updateChart(detections){
+  const counts={low:0,medium:0,high:0};
+  for(let d of detections)counts[d.alert_level.toLowerCase()]++;
+  const data=[counts.low,counts.medium,counts.high];
+  const ctx=document.getElementById('chart').getContext('2d');
+  const gradient=ctx.createLinearGradient(0,0,0,200);
+  gradient.addColorStop(0,'#0ff');
+  gradient.addColorStop(0.5,'#b45fff');
+  gradient.addColorStop(1,'#ff3860');
+  if(!chart){
+    chart=new Chart(ctx,{
+      type:'bar',
+      data:{labels:['Low','Medium','High'],
+        datasets:[{label:'Alerts',data:data,backgroundColor:gradient,borderWidth:1,borderRadius:10}]},
+      options:{plugins:{legend:{display:false}},
+        animation:{duration:1000,easing:'easeOutQuart'},
+        scales:{y:{ticks:{color:'#eee'},grid:{color:'rgba(255,255,255,0.1)'},beginAtZero:true},
+                x:{ticks:{color:'#eee'},grid:{display:false}}}}
+    });
+  }else{chart.data.datasets[0].data=data;chart.update();}
+}
+
+/* === Line Chart === */
+function updateTrend(detections){
+  const byDomain={};
+  detections.forEach(d=>{ if(!byDomain[d.domain]) byDomain[d.domain]=[]; byDomain[d.domain].push(d.dnssec_score??0); });
+  const maxLen = Object.values(byDomain).reduce((m,a)=>Math.max(m,a.length), 0) || 1;
+  const labels=Array.from({length:maxLen},(_,i)=>`T${i+1}`);
+  const neonColors=['#0ff','#b45fff','#ff3860','#5fff8d','#ffcc00','#3cf0ff'];
+  const datasets=Object.keys(byDomain).map((dom,i)=>({
+    label:dom,
+    data: byDomain[dom].concat(Array(maxLen - byDomain[dom].length).fill(null)),
+    borderColor: neonColors[i%neonColors.length],
+    borderWidth: 2.4,
+    pointRadius: 0,
+    tension: 0.38,
+    backgroundColor: 'transparent',
+    fill: false
+  }));
+  const ctx=document.getElementById('dnssecTrend').getContext('2d');
+  if(!trendChart){
+    trendChart=new Chart(ctx,{
+      type:'line',
+      data:{labels:labels,datasets:datasets},
+      options:{
+        plugins:{legend:{labels:{color:'#eee'}}},
+        animation:{duration:1200,easing:'easeInOutQuart'},
+        scales:{x:{ticks:{color:'#eee'},grid:{color:'rgba(255,255,255,0.05)'}},
+                y:{ticks:{color:'#eee'},grid:{color:'rgba(255,255,255,0.05)'},beginAtZero:true,max:100}}
+      }
+    });
+  }else{
+    trendChart.data.labels=labels;
+    trendChart.data.datasets=datasets;
+    trendChart.update();
+  }
+}
+
+/* === Ticker & Metrics === */
+function updateTicker(detections){
+  tickerContent.textContent = detections.length ? detections.slice(-10).map(d=>`[${d.alert_level}] ${d.domain}`).join(" ⚡ ") : "System monitoring... No alerts detected.";
+}
+function updateMetrics(detections) {
+  const total = detections.length;
+
+  // Normalize all levels to lowercase for consistency
+  const levels = detections.map(d => (d.alert_level || '').toLowerCase());
+
+  const high = levels.filter(l => l === 'high').length;
+  const domains = new Set(detections.map(d => d.domain)).size;
+  const secure = detections.filter(d => (d.dnssec_score ?? 0) > 80).length;
+
+  document.getElementById('metric-total').textContent = total;
+  document.getElementById('metric-high').textContent = high;
+  document.getElementById('metric-domains').textContent = domains;
+  document.getElementById('metric-secure').textContent = secure;
+}
+
+
+/* === PDF Report === */
+const btn=document.getElementById('genReport');
+btn.addEventListener('click',()=>{
+  btn.disabled=true;
+  fetch('/report/generate',{method:'POST'}).then(r=>r.json()).then(j=>{
+    if(j.status==='ok'){
+      const link=document.getElementById('downloadLink');
+      link.style.display='inline-block';
+      link.href='/report/download/'+j.filename;
+      link.innerText='Download '+j.filename;
+    } else alert('Report generation failed: ' + (j.message||'unknown'));
+  }).catch(e=>{console.error(e); alert('Report generation error');}).finally(()=>btn.disabled=false);
+});
+
+/* === Start polling === */
+fetchLatest();
+setInterval(fetchLatest, pollInterval);
+</script>
+</body>
+</html>
