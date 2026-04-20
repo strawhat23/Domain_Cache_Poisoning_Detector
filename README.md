@@ -21,10 +21,12 @@ This project addresses this issue by analyzing DNS responses in real time and de
 ## Technology Stack
 
 Backend: Django (Python)
+
 Machine Learning: Scikit-learn (Random Forest)
+
 DNS Processing: dnspython
+
 Frontend: HTML, CSS, JavaScript
-Data Processing: Pandas, NumPy
 
 ## System Workflow
 
