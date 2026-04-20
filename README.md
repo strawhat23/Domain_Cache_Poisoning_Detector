@@ -40,29 +40,43 @@ The system works in multiple stages:
 
 ## Installation and Setup
 
-Clone the repository:
+Follow these steps to run the project locally:
 
-git clone https://github.com/strawhat23/Domain-Cache-Poisoning_Detector.git
+1. Clone the repository
 
-Navigate to the project folder:
+git clone https://github.com/strawhat23/Domain_Cache_Poisoning_Detector.git
 
-cd domain-cache-detector-django
+2. Navigate to the project directory
 
-Create a virtual environment:
+cd Domain_Cache_Poisoning_Detector
+
+3. Create a virtual environment
 
 python -m venv venv
 
-Activate the environment (Windows):
+4. Activate the virtual environment
 
+Windows:
 venv\Scripts\activate
 
-Install dependencies:
+Mac/Linux:
+source venv/bin/activate
+
+5. Install required dependencies
 
 pip install -r requirements.txt
 
-Run the server:
+6. Apply database migrations
+
+python manage.py migrate
+
+7. Run the development server
 
 python manage.py runserver
+
+8. Open in browser
+
+http://127.0.0.1:8000/
 
 ## Project Report
 
