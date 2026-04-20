@@ -111,7 +111,7 @@ This project combines cryptographic verification through DNSSEC and intelligent 
 ![Threat Table](screenshots/threat-table.png)
 
 ### Alerts Panel
-![Alerts](screenshots/alerts.png)  
+![Alerts](screenshots/alerts.png)
 
 ## Author
 
