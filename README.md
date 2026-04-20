@@ -64,11 +64,10 @@ python manage.py runserver
 
 ## Project Report
 
-The detailed project report is available in the repository:
+The detailed project documentation is available below:
 
-DTU_Domain_Cache_Detector_Report.docx
+- [View Report (PDF)](https://github.com/strawhat23/Domain_Cache_Poisoning_Detector/blob/main/Domain_Cache_Detector_Report.pdf)
 
-It includes system design, methodology, implementation details, and analysis.
 
 ## Security Perspective
 
